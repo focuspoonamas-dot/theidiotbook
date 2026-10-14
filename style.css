@@ -29,8 +29,15 @@
     --radius-sm: 10px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
 
 body {
     background-color: var(--bg-main);
@@ -52,6 +59,7 @@ body {
     transform: translate(-50%, -50%);
     animation: particleFade 0.8s forwards ease-out;
 }
+
 @keyframes particleFade {
     0% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
     100% { opacity: 0; transform: translate(-50%, -40px) scale(0.2); }
@@ -117,11 +125,11 @@ body {
     gap: 8px;
 }
 .brand-title span { color: var(--accent-gold); }
-.nav-links { display: flex; gap: 24px; }
+.nav-links { display: flex; gap: 20px; }
 .nav-links a {
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 500;
     transition: 0.25s;
 }
@@ -228,11 +236,11 @@ body {
 
 .book-title-literary {
     font-family: var(--font-heading);
-    font-size: 2.6rem; line-height: 1.15;
+    font-size: 2.2rem; line-height: 1.25;
     color: var(--text-heading);
     font-weight: 700; margin-bottom: 4px;
 }
-.title-sub { font-family: var(--font-typewriter); font-size: 1.4rem; color: var(--slate-medium); font-weight: 400; }
+.title-sub { font-family: var(--font-typewriter); font-size: 1.2rem; color: var(--slate-medium); font-weight: 400; }
 .book-sub-tag { font-size: 1rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 16px; }
 .book-lead { font-size: 1.02rem; color: var(--text-body); margin-bottom: 24px; }
 
@@ -294,9 +302,7 @@ body {
     margin-bottom: 12px;
 }
 
-.justify-center {
-    justify-content: center;
-}
+.justify-center { justify-content: center; }
 
 .inline-icon {
     font-size: 1.5rem;
@@ -306,19 +312,14 @@ body {
     justify-content: center;
 }
 
-.card-inline-header h3 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--text-heading);
-    margin: 0;
-}
-
+.card-inline-header h3,
 .card-inline-header h4 {
     font-family: var(--font-heading);
-    font-size: 1.05rem;
     color: var(--text-heading);
     margin: 0;
 }
+.card-inline-header h3 { font-size: 1.2rem; }
+.card-inline-header h4 { font-size: 1.05rem; }
 
 .glass-card p { font-size: 0.95rem; color: var(--text-body); }
 
@@ -326,7 +327,6 @@ body {
     padding: 22px 16px; 
     border-top: 4px solid var(--accent-gold); 
     text-align: center;
-    transition: all 0.3s ease;
 }
 .feature-card:hover {
     transform: translateY(-6px);
@@ -345,7 +345,7 @@ body {
     box-shadow: var(--shadow-soft);
     border: 2px solid #ffb3db;
     position: relative; 
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 .disney-quote-card:hover {
     transform: translateY(-6px);
@@ -356,7 +356,7 @@ body {
 .quote-text {
     font-family: var(--font-heading);
     font-size: 1.4rem; font-style: italic; line-height: 1.6;
-    margin-bottom: 16px; color: var(--slate-dark);
+    margin-bottom: 16px;
 }
 .quote-author { font-family: var(--font-typewriter); font-size: 0.9rem; color: var(--slate-medium); }
 
@@ -387,7 +387,139 @@ body {
     background: #ffffff;
 }
 
-@media (max-width: 1200px) { .side-banner { display: none; } }
+/* =========================================================
+   INTERACTIVE QUIZ STYLES (MODERN UI)
+   ========================================================= */
+
+.quiz-subtext {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.quiz-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 36px 32px;
+    text-align: center;
+    background: #ffffff;
+    border: 2px solid var(--slate-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+}
+
+.quiz-step {
+    display: none;
+}
+
+.quiz-step.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.quiz-badge {
+    display: inline-block;
+    font-family: var(--font-typewriter);
+    font-size: 0.8rem;
+    background: var(--slate-light);
+    color: var(--accent-gold);
+    padding: 4px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--slate-border);
+    margin-bottom: 16px;
+}
+
+.quiz-question {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--text-heading);
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quiz-opt-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #faf6f8;
+    border: 1.5px solid var(--slate-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    color: var(--text-heading);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.quiz-opt-btn:hover {
+    background: #ffffff;
+    border-color: #ffb3db;
+    box-shadow: 0 8px 20px rgba(224, 130, 157, 0.15);
+    transform: translateY(-2px);
+}
+
+.opt-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.quiz-result {
+    padding: 20px 10px;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.result-icon-badge {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.result-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--slate-dark);
+    margin-bottom: 12px;
+}
+
+.result-desc {
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.quiz-reset-btn {
+    background: var(--slate-dark);
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.quiz-reset-btn:hover {
+    background: var(--slate-medium);
+    transform: scale(1.04);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) { .side-banner { display: none; } }
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; text-align: center; }
     .hero-header-badges { justify-content: center; }
@@ -395,7 +527,7 @@ body {
     .grid-2, .grid-4 { grid-template-columns: 1fr; }
     .nav-links { display: none; }
 }
-/* แก้ไขปัญหาการ Scroll แล้วเลื่อนเลยหัวข้อ (Offset สำหรับ Sticky Navbar) */
+
 .hero-stage,
 .content-section {
     scroll-margin-top: 90px;
